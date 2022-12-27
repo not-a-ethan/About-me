@@ -17,22 +17,44 @@ const Skills = () => {
     background: "#0108B3",
     border: "1px solid #000000",
     borderRadius: "100px",
-    minWidth: "5%",
-    maxWidth: "7.5%",
+    minWidth: "10%",
+    maxWidth: "15%",
     height: "1.775vh",
     gridColumn: "1",
     gridRow: "1",
   }
 
+  const skills = ["HTML", "CSS", "JavaScript", "Github"]
+  const listItems = skills.map((skill) => <p key={skill} style={itemStyle}>{skill}</p>);
+
   const content = (
     <div>
       <h1>Skills</h1>
       <div style={mostStyle}>
-        <p style={itemStyle}>HTML</p>
-        <p style={itemStyle}>CSS</p>
-        <p style={itemStyle}>JavaScript</p>
-        <p style={itemStyle}>Github</p>
+        {listItems}
       </div>
+    </div>
+  )
+
+  return content;
+}
+
+const Achivements = () => {
+  const achivments = ["Replit Ask moderator"]
+  const listItems = achivments.map((achivment) => <li key={achivment} >{achivment}</li>);
+
+  const allStyle = {
+    marginTop: "2vh",
+    position: "absolute",
+    left: "30%",
+  }
+
+  const content = (
+    <div style={allStyle}>
+     <h1>Achivements</h1>
+       <ul>
+          {listItems}
+       </ul>
     </div>
   )
 
@@ -47,11 +69,21 @@ const App = () => {
     height: "100vh",
     padding: "0",
     margin: "0",
+    overflow: "hidden",
+    display: "grid",
+    gap: "0",
   }
 
   const mostStyle = {
     marginLeft: "2vw",
     marginTop: "2vh",
+    gridColumn: "1",
+    gridRow: "1",
+  }
+
+  const otherStyle = {
+    gridColumn: "2",
+    gridRow: "1",
   }
 
   const pfpStyle = {
@@ -64,8 +96,10 @@ const App = () => {
       <div style={mostStyle}>
         <img src="./images/pfp.png" alt="pfp" style={pfpStyle} />
         <h2>Ethan</h2>
-
         <Skills />
+      </div>
+      <div style={otherStyle}>
+        <Achivements />
       </div>
     </div>
   )
